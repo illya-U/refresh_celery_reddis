@@ -37,6 +37,7 @@ class DefaultOrderSerializer(serializers.ModelSerializer):
 
 
 class CreateOrderSerializer(serializers.Serializer):
+    id = serializers.IntegerField(read_only=True)
     user = serializers.PrimaryKeyRelatedField(
         queryset=User.objects.all()
     )
@@ -93,6 +94,7 @@ class DefaultPaymentSerializer(serializers.ModelSerializer):
 
 
 class CreatePaymentSerializer(serializers.Serializer):
+    id = serializers.IntegerField(read_only=True)
     order = serializers.PrimaryKeyRelatedField(
         queryset=Order.objects.all()
     )
